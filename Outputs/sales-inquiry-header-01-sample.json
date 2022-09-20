@@ -1,0 +1,42 @@
+{
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-sales-inquiry-reads/SAP_API_Caller/caller.go#L60",
+	"function": "sap-api-integrations-sales-inquiry-reads/SAP_API_Caller.(*SAPAPICaller).Header",
+	"level": "INFO",
+	"message": [
+		{
+			"SalesInquiry": "10000000",
+			"SalesInquiryType": "IN",
+			"SalesOrganization": "0001",
+			"DistributionChannel": "01",
+			"OrganizationDivision": "01",
+			"SalesGroup": "",
+			"SalesOffice": "",
+			"SalesDistrict": "000001",
+			"SoldToParty": "1",
+			"CreationDate": "2022-09-20",
+			"LastChangeDate": "",
+			"PurchaseOrderByCustomer": "",
+			"CustomerPurchaseOrderType": "",
+			"CustomerPurchaseOrderDate": "",
+			"SalesInquiryDate": "2022-09-20",
+			"TotalNetAmount": "15000.00",
+			"TransactionCurrency": "EUR",
+			"SDDocumentReason": "",
+			"PricingDate": "1998-02-01",
+			"HeaderBillingBlockReason": "",
+			"BindingPeriodValidityStartDate": "1998-02-01",
+			"BindingPeriodValidityEndDate": "2022-09-22",
+			"HdrOrderProbabilityInPercent": "30",
+			"ExpectedOrderNetAmount": "4500.00",
+			"IncotermsClassification": "FH",
+			"CustomerPaymentTerms": "0001",
+			"PaymentMethod": "",
+			"OverallSDProcessStatus": "A",
+			"TotalCreditCheckStatus": "",
+			"OverallSDDocumentRejectionSts": "A",
+			"to_Partner": "http://100.21.57.120:8080/sap/opu/odata/sap/API_SALES_INQUIRY_SRV/A_SalesInquiry('10000000')/to_Partner",
+			"to_Item": "http://100.21.57.120:8080/sap/opu/odata/sap/API_SALES_INQUIRY_SRV/A_SalesInquiry('10000000')/to_Item"
+		}
+	],
+	"time": "2022-09-20T16:54:40+09:00"
+}

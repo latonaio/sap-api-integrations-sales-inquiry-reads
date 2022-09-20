@@ -50,7 +50,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 ここでは、"Header" が指定されています。
 
 ```
-	"api_schema": "sap.s4.beh.salesinquiry.v1.	SalesInquiry.Created.v1",
+	"api_schema": "SAPSalesInquiryReads",
 	"accepter": ["Header"],
 	"sales_inquiry": "10000000",
 	"deleted": false
@@ -61,7 +61,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 全データを取得する場合、sample.json は以下のように記載します。  
 
 ```
-	"api_schema": "sap.s4.beh.salesinquiry.v1.	SalesInquiry.Created.v1",
+	"api_schema": "SAPSalesInquiryReads",
 	"accepter": ["All"],
 	"sales_inquiry": "10000000",
 	"deleted": false
@@ -98,16 +98,51 @@ func (c *SAPAPICaller) AsyncGetSalesInquiry(salesInquiry, salesInquiryItem strin
 }
 ```
 ## Output  
-本マイクロサービスでは、[golang-logging-library](https://github.com/latonaio/golang-logging-library) により、以下のようなデータがJSON形式で出力されます。  
+本マイクロサービスでは、[golang-logging-library-for-sap](https://github.com/latonaio/golang-logging-library-for-sap) により、以下のようなデータがJSON形式で出力されます。  
 以下の sample.json の例は、SAP 販売引合 の ヘッダデータ が取得された結果の JSON の例です。  
-以下の項目のうち、"SalesInquiry" ～ "ToHeaderPartner" は、/SAP_API_Output_Formatter/type.go 内 の Type Header {} による出力結果です。"cursor" ～ "time"は、golang-logging-library による 定型フォーマットの出力結果です。  
+以下の項目のうち、"SalesInquiry" ～ "ToHeaderPartner" は、/SAP_API_Output_Formatter/type.go 内 の Type Header {} による出力結果です。"cursor" ～ "time"は、golang-logging-library-for-sap による 定型フォーマットの出力結果です。  
 
 ```
 {
-	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-sales-inquiry-reads/SAP_API_Caller/caller.go#L50",
+	"cursor": "/Users/latona2/bitbucket/sap-api-integrations-sales-inquiry-reads/SAP_API_Caller/caller.go#L60",
 	"function": "sap-api-integrations-sales-inquiry-reads/SAP_API_Caller.(*SAPAPICaller).Header",
 	"level": "INFO",
-	"message": "[{XXXXXXXXXXXXXXXXXXXXXXXXXXXXX}]",
-	"time": "2021-12-11T15:33:00.054455+09:00"
+	"message": [
+		{
+			"SalesInquiry": "10000000",
+			"SalesInquiryType": "IN",
+			"SalesOrganization": "0001",
+			"DistributionChannel": "01",
+			"OrganizationDivision": "01",
+			"SalesGroup": "",
+			"SalesOffice": "",
+			"SalesDistrict": "000001",
+			"SoldToParty": "1",
+			"CreationDate": "2022-09-20",
+			"LastChangeDate": "",
+			"PurchaseOrderByCustomer": "",
+			"CustomerPurchaseOrderType": "",
+			"CustomerPurchaseOrderDate": "",
+			"SalesInquiryDate": "2022-09-20",
+			"TotalNetAmount": "15000.00",
+			"TransactionCurrency": "EUR",
+			"SDDocumentReason": "",
+			"PricingDate": "1998-02-01",
+			"HeaderBillingBlockReason": "",
+			"BindingPeriodValidityStartDate": "1998-02-01",
+			"BindingPeriodValidityEndDate": "2022-09-22",
+			"HdrOrderProbabilityInPercent": "30",
+			"ExpectedOrderNetAmount": "4500.00",
+			"IncotermsClassification": "FH",
+			"CustomerPaymentTerms": "0001",
+			"PaymentMethod": "",
+			"OverallSDProcessStatus": "A",
+			"TotalCreditCheckStatus": "",
+			"OverallSDDocumentRejectionSts": "A",
+			"to_Partner": "http://100.21.57.120:8080/sap/opu/odata/sap/API_SALES_INQUIRY_SRV/A_SalesInquiry('10000000')/to_Partner",
+			"to_Item": "http://100.21.57.120:8080/sap/opu/odata/sap/API_SALES_INQUIRY_SRV/A_SalesInquiry('10000000')/to_Item"
+		}
+	],
+	"time": "2022-09-20T16:54:40+09:00"
 }
 ```

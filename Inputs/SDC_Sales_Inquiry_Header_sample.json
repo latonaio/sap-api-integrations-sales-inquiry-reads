@@ -90,7 +90,7 @@
 			}
 		}
 	},
-	"api_schema": "sap.s4.beh.salesinquiry.v1.SalesInquiry.Created.v1",
+	"api_schema": "SAPSalesInquiryReads",
 	"accepter": ["Header"],
 	"sales_inquiry": "10000000",
 	"deleted": false
