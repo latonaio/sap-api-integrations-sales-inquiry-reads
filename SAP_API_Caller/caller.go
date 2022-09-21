@@ -55,30 +55,31 @@ func (c *SAPAPICaller) Header(salesInquiry string) {
 	headerData, err := c.callSalesInquirySrvAPIRequirementHeader("A_SalesInquiry", salesInquiry)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(headerData)
 	}
-	c.log.Info(headerData)
 
 	headerPartnerData, err := c.callToHeaderPartner(headerData[0].ToHeaderPartner)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(headerPartnerData)
 	}
-	c.log.Info(headerPartnerData)
 
 	itemData, err := c.callToItem(headerData[0].ToItem)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemData)
 	}
-	c.log.Info(itemData)
 
 	itemPricingElementData, err := c.callToItemPricingElement(itemData[0].ToItemPricingElement)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemPricingElementData)
 	}
-	c.log.Info(itemPricingElementData)
+	return
 }
 
 func (c *SAPAPICaller) callSalesInquirySrvAPIRequirementHeader(api, salesInquiry string) ([]sap_api_output_formatter.Header, error) {
@@ -148,16 +149,17 @@ func (c *SAPAPICaller) Item(salesInquiry, salesInquiryItem string) {
 	itemData, err := c.callSalesInquirySrvAPIRequirementItem("A_SalesInquiryItem", salesInquiry, salesInquiryItem)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemData)
 	}
-	c.log.Info(itemData)
 
 	itemPricingElementData, err := c.callToItemPricingElement(itemData[0].ToItemPricingElement)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(itemPricingElementData)
 	}
-	c.log.Info(itemPricingElementData)
+	return
 }
 
 func (c *SAPAPICaller) callSalesInquirySrvAPIRequirementItem(api, salesInquiry, salesInquiryItem string) ([]sap_api_output_formatter.Item, error) {
